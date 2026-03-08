@@ -1,0 +1,26 @@
+    modLoader="javafml"
+    loaderVersion="[47,)"
+    license="MIT"
+[[mods]] #mandatory
+    modId="businessmod" # 必须全小写，不能有空格，这是你模组的唯一标识符！
+    version="0.0.1"
+    displayName="Business Manager" # 玩家在游戏内模组列表看到的名称
+    #displayURL="https://yourwebsite.com" # 可选
+    #logoFile="logo.png" # 可选
+    credits="Thanks to everyone" # 可选
+    authors="oldvirus111" # 你的名字
+    description='''
+    A mod about managing your own business, viewing profits, and dominating the market!
+    '''
+[[dependencies.businessmod]] #optional
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.businessmod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
