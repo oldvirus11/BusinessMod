@@ -14,6 +14,9 @@ public class BusinessMod {
         // 获取模组的事件总线
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        // 注册创造模式标签页 (新增这一行)
+        ModCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+
         // 注册事件总线，让 Forge 知道我们要添加方块和物品
         ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
