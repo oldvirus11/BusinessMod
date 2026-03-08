@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "businessmod:block/company_terminal" }
+  }
+}
