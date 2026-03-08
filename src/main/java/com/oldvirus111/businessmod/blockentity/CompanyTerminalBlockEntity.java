@@ -3,10 +3,11 @@ package com.oldvirus111.businessmod.blockentity;
 import com.oldvirus111.businessmod.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class CompanyTerminalBlockEntity extends BlockEntity {
+public class CompanyTerminalBlockEntity extends BlockEntity implements MenuProvider {
     private String companyName = "";
     private boolean isRegistered = false;
     private int currentProfit = 0;
@@ -47,5 +48,30 @@ public class CompanyTerminalBlockEntity extends BlockEntity {
         this.companyName = name;
         this.isRegistered = true;
         setChanged(); // 标记数据已更改，需要保存
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+        return new CompanyTerminalMenu(pContainerId, pPlayerInventory, this);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable("block.businessmod.company_terminal");
+    }
+
+    // 同步数据到客户端（用于GUI显示）
+    @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag tag = new CompoundTag();
+        saveAdditional(tag);
+        return tag;
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 }

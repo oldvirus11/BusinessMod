@@ -22,6 +22,9 @@ public class BusinessMod {
         ModItems.ITEMS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 
+        //注册菜单
+        ModMenus.MENUS.register(modEventBus);
+
         // 注册到 Forge 的常规事件总线
         MinecraftForge.EVENT_BUS.register(this);
     }

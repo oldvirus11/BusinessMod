@@ -34,9 +34,9 @@ public class CompanyTerminalBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if (entity instanceof CompanyTerminalBlockEntity) {
-                // TODO: 在下一阶段，我们在这里触发打开 GUI 的逻辑 (NetworkHooks.openScreen)
-                System.out.println("打开公司管理面板...");
+            if (entity instanceof CompanyTerminalBlockEntity && pPlayer instanceof ServerPlayer serverPlayer) {
+                // 触发打开 GUI
+                NetworkHooks.openScreen(serverPlayer, (CompanyTerminalBlockEntity) entity, pPos);
             }
         }
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
