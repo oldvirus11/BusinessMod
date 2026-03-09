@@ -1,5 +1,7 @@
 package com.oldvirus111.businessmod.block;
 
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.NetworkHooks;
 import com.oldvirus111.businessmod.blockentity.CompanyTerminalBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;

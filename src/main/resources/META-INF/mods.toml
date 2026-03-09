@@ -3,7 +3,7 @@
     license="MIT"
 [[mods]] #mandatory
     modId="businessmod" # 必须全小写，不能有空格，这是你模组的唯一标识符！
-    version="0.0.1"
+    version="0.1.1"
     displayName="Business Manager" # 玩家在游戏内模组列表看到的名称
     #displayURL="https://yourwebsite.com" # 可选
     #logoFile="logo.png" # 可选

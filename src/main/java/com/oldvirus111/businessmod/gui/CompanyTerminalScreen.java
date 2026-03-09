@@ -14,11 +14,23 @@ public class CompanyTerminalScreen extends AbstractContainerScreen<CompanyTermin
     // 准备一张 256x256 的材质，画一个原版灰白色的底板
     private static final ResourceLocation TEXTURE = new ResourceLocation(BusinessMod.MOD_ID, "textures/gui/company_terminal.png");
     private EditBox nameInput;
+    private int currentProfit = 0; // 声明存储盈利的变量（如果还没有的话）
 
     public CompanyTerminalScreen(CompanyTerminalMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.imageWidth = 176;
         this.imageHeight = 166;
+    }
+
+    // 添加供客户端界面调用的 getter 方法
+    public int getCurrentProfit() {
+        return this.currentProfit;
+    }
+
+    // 顺便你可能还需要一个 setter 方法来在服务端更新盈利
+    public void setCurrentProfit(int profit) {
+        this.currentProfit = profit;
+        this.setChanged(); // 标记区块实体已更改，等待保存
     }
 
     @Override

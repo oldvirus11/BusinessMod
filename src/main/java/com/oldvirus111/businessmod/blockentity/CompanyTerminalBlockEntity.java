@@ -1,11 +1,20 @@
 package com.oldvirus111.businessmod.blockentity;
 
 import com.oldvirus111.businessmod.ModBlockEntities;
+import com.oldvirus111.businessmod.gui.CompanyTerminalMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import org.jetbrains.annotations.Nullable;
 
 public class CompanyTerminalBlockEntity extends BlockEntity implements MenuProvider {
     private String companyName = "";
